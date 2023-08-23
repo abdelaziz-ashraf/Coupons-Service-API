@@ -1,5 +1,6 @@
 package com.miniFawry.couponapi.entity;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.miniFawry.couponapi.Excptions.ExpiryDateException;
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.persistence.*;
@@ -34,6 +35,7 @@ public class Coupon implements Serializable {
     private Long value;
     private boolean active = true;
     @Temporal(TemporalType.DATE)
+    @JsonFormat(pattern="yyyy-MM-dd")
     private Date expiryDate;
     @PrePersist
     @PreUpdate
