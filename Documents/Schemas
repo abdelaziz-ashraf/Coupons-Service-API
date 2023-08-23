@@ -1,0 +1,26 @@
+Coupon Schema {
+    id	            integer($int64)
+    code	        string
+    maxAllowedUses	integer($int64)
+    usageNumber	    integer($int64)
+    type	        string
+    value	        integer($int64)
+    active	        boolean
+    expiryDate	    string($date-time)
+}
+
+
+Consumption History Schema {
+    id	            integer($int64)
+    orderId	        integer($int64)
+    priceBefore	    integer($int64)
+    priceAfter	    integer($int64)
+    usedCoupon	    Coupon
+    consumedAt	    string($date-time)
+}
+
+Apply(use) Coupon Request Schema {
+    orderId	        integer($int64)
+    priceBefore	    integer($int64)
+    priceAfter	    integer($int64)
+}

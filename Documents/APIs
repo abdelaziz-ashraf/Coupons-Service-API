@@ -1,0 +1,19 @@
+[ "/coupons" ]
+
+    - Create Coupon                     =   POST "/"
+
+    - Get Coupon By Code                =   GET  "/{code}"
+
+    - Get All Coupons                   =   GET  "/"
+
+    - Get Active Coupons                =   GET  "/active-coupons"
+
+    - Deactivate Coupon                 =   PUT  "/{code}/deactivate"
+
+    - Apply Coupon                      =   POST "/{code}/useCoupon"
+
+[ "/consumption-history" ]
+
+    - View Consumption History          =   GET  "/"
+
+    - View Consumption History ByCode   =   GET  "/{code}"
