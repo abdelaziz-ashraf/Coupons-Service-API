@@ -8,7 +8,8 @@ RUN mvn clean package -DskipTests
 #
 # Package stage
 #
-FROM eclipse-temurin:17-jdk-alpine
+#FROM eclipse-temurin:17-jdk-alpine
+FROM openjdk:17.0.1-jdk-slim
 COPY --from=build /target/couponAPI-0.0.1-SNAPSHOT.jar couponAPI.jar
 EXPOSE 8080
 ENTRYPOINT ["java","-jar", "couponAPI.jar"]
