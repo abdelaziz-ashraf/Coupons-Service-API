@@ -9,7 +9,7 @@ RUN mvn clean package -DskipTests
 # Package stage
 #
 FROM openjdk:17.0.1-jdk-slim
-COPY --from=build /target/couponapi-0.0.1-SNAPSHOT.jar couponapi.mf
+COPY --from=build /target/couponapi-0.0.1-SNAPSHOT.jar couponapi.jar
 # ENV PORT=8080
 EXPOSE 8080
 ENTRYPOINT ["java","-jar","couponapi.jar"]
