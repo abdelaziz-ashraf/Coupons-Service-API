@@ -1,15 +1,15 @@
 #
 # Build stage
 #
-FROM maven:3.8.3-openjdk-17-slim AS build
+FROM maven:3.8.2-jdk-11 AS build
 COPY . .
-RUN mvn clean package -DskipTests
+RUN mvn clean package -Pprod -DskipTests
 
 #
 # Package stage
 #
-#FROM eclipse-temurin:17-jdk-alpine
-FROM openjdk:17.0.1-jdk-slim
-COPY --from=build /target/couponAPI-0.0.1-SNAPSHOT.jar couponAPI.jar
+FROM openjdk:11-jdk-slim
+COPY --from=build /target/couponapi-0.0.1-SNAPSHOT.jar couponapi.jar
+# ENV PORT=8080
 EXPOSE 8080
-ENTRYPOINT ["java","-jar", "couponAPI.jar"]
+ENTRYPOINT ["java","-jar","demo.jar"]
