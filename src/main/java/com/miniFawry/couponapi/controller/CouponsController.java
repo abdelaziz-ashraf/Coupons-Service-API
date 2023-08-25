@@ -2,6 +2,7 @@ package com.miniFawry.couponapi.controller;
 
 import com.miniFawry.couponapi.entity.Coupon;
 import com.miniFawry.couponapi.entity.entityRequest.UseCouponReq;
+import com.miniFawry.couponapi.entity.responses.CouponRes;
 import com.miniFawry.couponapi.model.CouponModel;
 import com.miniFawry.couponapi.service.CouponsService;
 import io.swagger.v3.oas.annotations.Operation;
@@ -29,7 +30,7 @@ public class CouponsController {
 
     @Operation(summary = "Get Coupon By Code(name)")
     @GetMapping("/{code}")
-    public CouponModel checkCoupon(@PathVariable String code){
+    public CouponRes checkCoupon(@PathVariable String code){
         return  couponsService.getCouponByCode(code);
 
     }

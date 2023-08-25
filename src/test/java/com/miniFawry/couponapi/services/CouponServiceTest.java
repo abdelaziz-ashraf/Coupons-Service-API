@@ -5,6 +5,7 @@ import com.miniFawry.couponapi.Excptions.HaveCodeWithSameNameException;
 import com.miniFawry.couponapi.entity.ConsumptionHistory;
 import com.miniFawry.couponapi.entity.Coupon;
 import com.miniFawry.couponapi.entity.entityRequest.UseCouponReq;
+import com.miniFawry.couponapi.entity.responses.CouponRes;
 import com.miniFawry.couponapi.mapper.CouponMapper;
 import com.miniFawry.couponapi.model.CouponModel;
 import com.miniFawry.couponapi.repository.ConsumptionHistoryRepository;
@@ -123,7 +124,7 @@ public class CouponServiceTest {
                 ));
 
         // Act
-        CouponModel result = couponsService.getCouponByCode(couponCode);
+        CouponRes result = couponsService.getCouponByCode(couponCode);
 
         // Assert
         assertEquals(couponCode, result.getCode());

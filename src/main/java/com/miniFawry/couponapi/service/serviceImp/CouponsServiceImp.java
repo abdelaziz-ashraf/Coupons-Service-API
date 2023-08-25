@@ -5,6 +5,7 @@ import com.miniFawry.couponapi.Excptions.HaveCodeWithSameNameException;
 import com.miniFawry.couponapi.entity.ConsumptionHistory;
 import com.miniFawry.couponapi.entity.Coupon;
 import com.miniFawry.couponapi.entity.entityRequest.UseCouponReq;
+import com.miniFawry.couponapi.entity.responses.CouponRes;
 import com.miniFawry.couponapi.mapper.CouponMapper;
 import com.miniFawry.couponapi.model.CouponModel;
 import com.miniFawry.couponapi.repository.ConsumptionHistoryRepository;
@@ -47,13 +48,19 @@ public class CouponsServiceImp implements CouponsService {
     }
 
     @Override
-    public CouponModel getCouponByCode(String code) {
+    public CouponRes getCouponByCode(String code) {
 
         Coupon coupon = couponRepository.findByCode(code)
                 .orElseThrow(() -> new CouponNotFoundException(code));
 
         CouponValidation.activeCoupon(coupon);
-        return couponMapper.toModel(coupon);
+        return new CouponRes(
+                coupon.getId(),
+                coupon.getCode(),
+                coupon.getType(),
+                coupon.getValue(),
+                coupon.isActive()
+        );
     }
 
     @Override
