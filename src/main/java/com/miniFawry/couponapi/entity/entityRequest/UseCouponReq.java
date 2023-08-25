@@ -6,8 +6,8 @@ import lombok.Data;
 @Schema(name = "Apply(use) Coupon Request Schema")
 @Data
 public class UseCouponReq {
-    Long orderId;
-    Long priceBefore;
-    Long priceAfter;
+    String orderCode;
+    double priceBefore;
+    double priceAfter;
 
 }

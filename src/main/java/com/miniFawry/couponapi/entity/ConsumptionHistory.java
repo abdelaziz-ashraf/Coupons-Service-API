@@ -19,8 +19,8 @@ import java.util.Date;
 public class ConsumptionHistory implements Serializable {
 
 
-    public ConsumptionHistory(Long orderId, Long priceBefore, Long priceAfter, Coupon usedCoupon) {
-        this.orderId = orderId;
+    public ConsumptionHistory(String orderCode, double priceBefore, double priceAfter, Coupon usedCoupon) {
+        this.orderCode = orderCode;
         this.priceBefore = priceBefore;
         this.priceAfter = priceAfter;
         this.usedCoupon = usedCoupon;
@@ -32,11 +32,11 @@ public class ConsumptionHistory implements Serializable {
     Long id;
 
     @Column(nullable = false, updatable = false)
-    Long orderId;
+    String orderCode;
     @Column(nullable = false, updatable = false)
-    Long priceBefore;
+    double priceBefore;
     @Column(nullable = false, updatable = false)
-    Long priceAfter;
+    double priceAfter;
 
     @ManyToOne
     @JoinColumn(name = "coupon_id", referencedColumnName = "id")

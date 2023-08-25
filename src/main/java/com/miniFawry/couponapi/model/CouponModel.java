@@ -18,7 +18,7 @@ public class CouponModel {
     Long usageNumber;
 //    CouponType type;
     String type;
-    Long value;
+    double value;
     boolean active;
     Date expiryDate;
 }

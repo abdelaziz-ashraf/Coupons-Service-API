@@ -6,9 +6,7 @@ import lombok.Data;
 @Data
 @AllArgsConstructor
 public class CouponRes {
-    Long id;
     String code;
     String type;
-    Long value;
-    boolean active;
+    double value;
 }

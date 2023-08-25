@@ -32,7 +32,7 @@ public class Coupon implements Serializable {
     private Long maxAllowedUses;
     private Long usageNumber;
     private String type; // ToDo:: Enum
-    private Long value;
+    private double value;
     private boolean active = true;
     @Temporal(TemporalType.DATE)
     @JsonFormat(pattern="yyyy-MM-dd")

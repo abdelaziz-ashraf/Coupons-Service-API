@@ -55,11 +55,9 @@ public class CouponsServiceImp implements CouponsService {
 
         CouponValidation.activeCoupon(coupon);
         return new CouponRes(
-                coupon.getId(),
                 coupon.getCode(),
                 coupon.getType(),
-                coupon.getValue(),
-                coupon.isActive()
+                coupon.getValue()
         );
     }
 
@@ -95,7 +93,7 @@ public class CouponsServiceImp implements CouponsService {
         couponRepository.save(coupon);
 
         ConsumptionHistory consumptionHistory = new ConsumptionHistory(
-                useCouponReq.getOrderId(),
+                useCouponReq.getOrderCode(),
                 useCouponReq.getPriceBefore(),
                 useCouponReq.getPriceAfter(),
                 coupon

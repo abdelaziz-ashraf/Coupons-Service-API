@@ -15,8 +15,8 @@ import java.util.Date;
 public class ConsumptionHistoryModel {
     Long id;
     Long orderId;
-    Long priceBefore;
-    Long priceAfter;
+    double priceBefore;
+    double priceAfter;
     Coupon usedCoupon;
 
     Date consumedAt;
