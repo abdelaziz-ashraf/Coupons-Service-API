@@ -20,11 +20,11 @@ public class CouponValidation {
             throw new MaxAllowedUsesException();
         }
 
-        if(coupon.getType().toUpperCase().equals("PERCENTAGE") && ((coupon.getValue().compareTo(new BigDecimal("5")) == 1) || (coupon.getValue().compareTo(new BigDecimal("100")) == -1))) {
+        if(coupon.getType().toUpperCase().equals("PERCENTAGE") && ((coupon.getValue().compareTo(new BigDecimal("5")) == -1) || (coupon.getValue().compareTo(new BigDecimal("100")) == 1))) {
             throw new ValueException("1%", "100%");
         }
 
-        if (coupon.getType().toUpperCase().equals("VALUE") && ((coupon.getValue().compareTo(new BigDecimal("10")) == 1) || (coupon.getValue().compareTo(new BigDecimal("500")) == -1))) {
+        if (coupon.getType().toUpperCase().equals("VALUE") && ((coupon.getValue().compareTo(new BigDecimal("10")) == -1) || (coupon.getValue().compareTo(new BigDecimal("500")) == 1))) {
             throw new ValueException("10$", "500$");
         }
     }
