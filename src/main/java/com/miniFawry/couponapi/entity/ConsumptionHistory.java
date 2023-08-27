@@ -43,5 +43,5 @@ public class ConsumptionHistory implements Serializable {
     @JoinColumn(name = "coupon_id", referencedColumnName = "id")
     Coupon usedCoupon;
 
-    private Date consumedAt;
+    Date consumedAt;
 }
