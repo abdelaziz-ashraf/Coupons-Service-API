@@ -24,7 +24,13 @@ public class Coupon implements Serializable {
 
     // ToDo::  @Column(nullable = false)
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @SequenceGenerator(
+            name = "coupons_id_seq",
+            sequenceName = "coupons_id_seq",
+            allocationSize = 1
+    )
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "coupons_id_seq")
+
     private Long id;
     @Column(unique = true)
     @NotEmpty(message = "Code cannot be empty or null")
@@ -33,7 +39,9 @@ public class Coupon implements Serializable {
     private Long usageNumber;
     private String type; // ToDo:: Enum
     private double value;
-    private boolean active = true;
+
+    @Column(columnDefinition = "BOOLEAN DEFAULT true")
+    private boolean active;
     @Temporal(TemporalType.DATE)
     @JsonFormat(pattern="yyyy-MM-dd")
     private Date expiryDate;

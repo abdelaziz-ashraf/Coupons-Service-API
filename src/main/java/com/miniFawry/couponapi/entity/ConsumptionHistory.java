@@ -29,7 +29,12 @@ public class ConsumptionHistory implements Serializable {
     }
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @SequenceGenerator(
+            name = "consumptionHistory_id_seq",
+            sequenceName = "consumptionHistory_id_seq",
+            allocationSize = 1
+    )
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "consumptionHistory_id_seq")
     Long id;
 
     @Column(nullable = false)
@@ -39,7 +44,7 @@ public class ConsumptionHistory implements Serializable {
     @Column(nullable = false)
     BigDecimal priceAfter;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "usedCoupon_id", referencedColumnName = "id")
     Coupon usedCoupon;
 
