@@ -30,19 +30,22 @@ public class CouponValidation {
 
     public static boolean activeCoupon(Coupon coupon) {
 
-        if(!coupon.isActive()){
+        if(!coupon.isActive()
+                || (coupon.getUsageNumber() >= coupon.getMaxAllowedUses())
+                || (coupon.getExpiryDate() != null && coupon.getExpiryDate().before(new Date()))
+        ) {
             throw new CouponInactiveException(coupon.getCode());
         }
 
-         if(coupon.getUsageNumber() >= coupon.getMaxAllowedUses()){
-             coupon.setActive(false);
-             throw new CouponUsagesExceededException(coupon.getCode());
-        }
-
-        if (coupon.getExpiryDate() != null && coupon.getExpiryDate().before(new Date())) {
-            coupon.setActive(false);
-            throw new CouponExpiredException(coupon.getCode());
-        }
+//         if(coupon.getUsageNumber() >= coupon.getMaxAllowedUses()){
+//             coupon.setActive(false);
+//             throw new CouponUsagesExceededException(coupon.getCode());
+//        }
+//
+//        if (coupon.getExpiryDate() != null && coupon.getExpiryDate().before(new Date())) {
+//            coupon.setActive(false);
+//            throw new CouponExpiredException(coupon.getCode());
+//        }
 
         return true;
     }
