@@ -24,13 +24,7 @@ public class Coupon implements Serializable {
 
     // ToDo::  @Column(nullable = false)
     @Id
-    @SequenceGenerator(
-            name = "coupons_id_seq",
-            sequenceName = "coupons_id_seq",
-            allocationSize = 1
-    )
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "coupons_id_seq")
-
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @Column(unique = true)
     @NotEmpty(message = "Code cannot be empty or null")
