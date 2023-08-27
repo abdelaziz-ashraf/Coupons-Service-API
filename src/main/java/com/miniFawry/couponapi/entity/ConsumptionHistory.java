@@ -40,7 +40,7 @@ public class ConsumptionHistory implements Serializable {
     BigDecimal priceAfter;
 
     @ManyToOne
-    @JoinColumn(name = "coupon_id", referencedColumnName = "id")
+    @JoinColumn(name = "usedCoupon_id", referencedColumnName = "id")
     Coupon usedCoupon;
 
     Date consumedAt;
