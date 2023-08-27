@@ -15,7 +15,7 @@ import java.util.Date;
 @AllArgsConstructor
 public class ConsumptionHistoryModel {
     Long id;
-    Long orderId;
+    String orderCode;
     BigDecimal priceBefore;
     BigDecimal priceAfter;
     Coupon usedCoupon;

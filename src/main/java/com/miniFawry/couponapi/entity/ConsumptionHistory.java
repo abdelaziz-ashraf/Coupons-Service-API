@@ -32,11 +32,11 @@ public class ConsumptionHistory implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id;
 
-    @Column(nullable = false, updatable = false)
+    @Column(nullable = false)
     String orderCode;
-    @Column(nullable = false, updatable = false)
+    @Column(nullable = false)
     BigDecimal priceBefore;
-    @Column(nullable = false, updatable = false)
+    @Column(nullable = false)
     BigDecimal priceAfter;
 
     @ManyToOne
