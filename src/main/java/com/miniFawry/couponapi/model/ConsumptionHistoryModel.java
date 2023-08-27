@@ -6,6 +6,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.math.BigDecimal;
 import java.util.Date;
 
 @Data
@@ -15,8 +16,8 @@ import java.util.Date;
 public class ConsumptionHistoryModel {
     Long id;
     Long orderId;
-    double priceBefore;
-    double priceAfter;
+    BigDecimal priceBefore;
+    BigDecimal priceAfter;
     Coupon usedCoupon;
 
     Date consumedAt;

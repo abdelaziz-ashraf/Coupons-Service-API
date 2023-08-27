@@ -8,6 +8,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
+import java.math.BigDecimal;
 import java.util.Date;
 
 @Schema(name = "Consumption History Schema")
@@ -19,7 +20,7 @@ import java.util.Date;
 public class ConsumptionHistory implements Serializable {
 
 
-    public ConsumptionHistory(String orderCode, double priceBefore, double priceAfter, Coupon usedCoupon) {
+    public ConsumptionHistory(String orderCode, BigDecimal priceBefore, BigDecimal priceAfter, Coupon usedCoupon) {
         this.orderCode = orderCode;
         this.priceBefore = priceBefore;
         this.priceAfter = priceAfter;
@@ -34,9 +35,9 @@ public class ConsumptionHistory implements Serializable {
     @Column(nullable = false, updatable = false)
     String orderCode;
     @Column(nullable = false, updatable = false)
-    double priceBefore;
+    BigDecimal priceBefore;
     @Column(nullable = false, updatable = false)
-    double priceAfter;
+    BigDecimal priceAfter;
 
     @ManyToOne
     @JoinColumn(name = "coupon_id", referencedColumnName = "id")

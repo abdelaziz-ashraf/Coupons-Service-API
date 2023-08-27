@@ -86,6 +86,7 @@ public class CouponsServiceImp implements CouponsService {
 
         CouponValidation.activeCoupon(coupon);
         coupon.setUsageNumber(coupon.getUsageNumber() + 1);
+
         if(coupon.isActive() && coupon.getMaxAllowedUses() == coupon.getUsageNumber()){
             coupon.setActive(false);
         }
