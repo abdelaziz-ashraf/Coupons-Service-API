@@ -29,19 +29,14 @@ public class ConsumptionHistory implements Serializable {
     }
 
     @Id
-    @SequenceGenerator(
-            name = "consumptionHistory_id_seq",
-            sequenceName = "consumptionHistory_id_seq",
-            allocationSize = 1
-    )
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "consumptionHistory_id_seq")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id;
 
-    @Column(nullable = false)
+//    @Column(nullable = false)
     String orderCode;
-    @Column(nullable = false)
+//    @Column(nullable = false)
     BigDecimal priceBefore;
-    @Column(nullable = false)
+//    @Column(nullable = false)
     BigDecimal priceAfter;
 
     @ManyToOne(fetch = FetchType.LAZY)

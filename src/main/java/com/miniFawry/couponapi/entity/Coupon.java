@@ -11,6 +11,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
+import java.math.BigDecimal;
 import java.util.Date;
 
 @Schema(name = "Coupon Schema")
@@ -32,7 +33,7 @@ public class Coupon implements Serializable {
     private Long maxAllowedUses;
     private Long usageNumber;
     private String type; // ToDo:: Enum
-    private double value;
+    private BigDecimal value;
 
     @Column(columnDefinition = "BOOLEAN DEFAULT true")
     private boolean active;
