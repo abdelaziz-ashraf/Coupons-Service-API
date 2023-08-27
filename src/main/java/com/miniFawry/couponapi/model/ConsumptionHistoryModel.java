@@ -6,14 +6,14 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.math.BigDecimal;
+import java.io.Serializable;
 import java.util.Date;
 
 @Data
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class ConsumptionHistoryModel {
+public class ConsumptionHistoryModel implements Serializable {
     Long id;
     String orderCode;
     BigDecimal priceBefore;
