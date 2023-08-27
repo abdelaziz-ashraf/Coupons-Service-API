@@ -17,6 +17,7 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
+import java.math.BigDecimal;
 import java.util.Date;
 import java.util.Optional;
 import java.util.ArrayList;
@@ -49,7 +50,7 @@ public class CouponServiceTest {
         coupon.setCode("TEST123");
         coupon.setMaxAllowedUses(50L);
         coupon.setType("VALUE");
-        coupon.setValue(50L);
+        coupon.setValue(new BigDecimal("50"));
 
         when(couponRepository.findByCode("TEST123")).thenReturn(Optional.empty());
 
@@ -109,7 +110,7 @@ public class CouponServiceTest {
         coupon.setUsageNumber(2L);
         coupon.setMaxAllowedUses(50L);
         coupon.setType("VALUE");
-        coupon.setValue(50L);
+        coupon.setValue(new BigDecimal("50"));
 
         when(couponRepository.findByCode(couponCode)).thenReturn(Optional.of(coupon));
         when(couponMapper.toModel(coupon)).thenReturn(new CouponModel(
@@ -159,8 +160,8 @@ public class CouponServiceTest {
     public void testGetActiveCoupons() {
         // Arrange
         List<Coupon> activeCoupons = new ArrayList<>();
-        activeCoupons.add(new Coupon(1L, "TEST123", 10L, 0L, "VALUE", 50L, true, new Date(2050, 12, 12)));
-        activeCoupons.add(new Coupon(2L, "TEST123", 10L, 0L, "VALUE", 50L, true, new Date(2050, 12, 12)));
+        activeCoupons.add(new Coupon(1L, "TEST123", 10L, 0L, "VALUE", new BigDecimal("50"), true, new Date(2050, 12, 12)));
+        activeCoupons.add(new Coupon(2L, "TEST123", 10L, 0L, "VALUE", new BigDecimal("50"), true, new Date(2050, 12, 12)));
 
 
         when(couponRepository.findAllByActiveTrue()).thenReturn(activeCoupons);

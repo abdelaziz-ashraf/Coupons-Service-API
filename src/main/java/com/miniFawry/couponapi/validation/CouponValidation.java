@@ -3,6 +3,7 @@ package com.miniFawry.couponapi.validation;
 import com.miniFawry.couponapi.Excptions.*;
 import com.miniFawry.couponapi.entity.Coupon;
 
+import java.math.BigDecimal;
 import java.util.Date;
 
 // TODO:: Clean Code
@@ -19,11 +20,11 @@ public class CouponValidation {
             throw new MaxAllowedUsesException();
         }
 
-        if(coupon.getType().toUpperCase().equals("PERCENTAGE") && (coupon.getValue() < 5 || coupon.getValue() > 100)) {
+        if(coupon.getType().toUpperCase().equals("PERCENTAGE") && ((coupon.getValue().compareTo(new BigDecimal("5")) == 1) || (coupon.getValue().compareTo(new BigDecimal("100")) == 1))) {
             throw new ValueException("1%", "100%");
         }
 
-        if (coupon.getType().toUpperCase().equals("VALUE") && (coupon.getValue() < 10 || coupon.getValue() > 500)) {
+        if (coupon.getType().toUpperCase().equals("VALUE") && ((coupon.getValue().compareTo(new BigDecimal("10")) == 1) || (coupon.getValue().compareTo(new BigDecimal("500")) == 1))) {
             throw new ValueException("10$", "500$");
         }
     }

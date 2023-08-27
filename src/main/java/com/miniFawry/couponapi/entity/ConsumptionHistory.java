@@ -32,14 +32,14 @@ public class ConsumptionHistory implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id;
 
-//    @Column(nullable = false)
+    @Column(nullable = false)
     String orderCode;
-//    @Column(nullable = false)
+    @Column(nullable = false)
     BigDecimal priceBefore;
-//    @Column(nullable = false)
+    @Column(nullable = false)
     BigDecimal priceAfter;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
     @JoinColumn(name = "usedCoupon_id", referencedColumnName = "id")
     Coupon usedCoupon;
 
